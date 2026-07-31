@@ -296,6 +296,12 @@ a.bjs-contact__value:hover { text-decoration: underline; }
   z-index: 50;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
 }
+/* phones: collapse the floating bubble to an icon-only circle */
+@media (max-width: 44rem) {
+  .bjs-wa--floating { padding: 0.95em; border-radius: 50%; }
+  .bjs-wa--floating .bjs-wa__label { display: none; }
+  .bjs-wa--floating svg { width: 1.7em; height: 1.7em; }
+}
 
 /* ---------- BrandBadge ---------- */
 .bjs-badge {
