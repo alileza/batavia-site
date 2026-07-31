@@ -1,0 +1,310 @@
+/* Batavia Jeans Studio — design tokens.
+   Palette drawn from the original site: chalkboard dark, white ink,
+   denim-indigo links (#6fa8dc / #9fc5e8 / #3d85c6), plus a thread-gold
+   accent echoing the copper stitching on jeans. */
+:root {
+  /* surfaces */
+  --bjs-bg: #16191d;
+  --bjs-surface: #21262c;
+  --bjs-surface-raised: #2a3038;
+
+  /* ink */
+  --bjs-ink: #ffffff;
+  --bjs-ink-muted: #b8bfc7;
+  --bjs-ink-faint: #888e96;
+
+  /* denim indigo */
+  --bjs-indigo-300: #9fc5e8;
+  --bjs-indigo-400: #6fa8dc;
+  --bjs-indigo-600: #3d85c6;
+
+  /* thread gold (copper stitching) */
+  --bjs-thread: #e2a13c;
+  --bjs-thread-soft: #c98d33;
+
+  /* whatsapp */
+  --bjs-wa-green: #25d366;
+  --bjs-wa-green-dark: #128c4b;
+
+  /* type */
+  --bjs-font-display: 'Oswald', sans-serif;
+  --bjs-font-accent: 'Rock Salt', cursive;
+  --bjs-font-body: 'Helvetica Neue', Arial, Tahoma, sans-serif;
+
+  /* shape & spacing */
+  --bjs-radius: 10px;
+  --bjs-radius-pill: 999px;
+  --bjs-stitch: 2px dashed var(--bjs-thread);
+  --bjs-space-1: 0.25rem;
+  --bjs-space-2: 0.5rem;
+  --bjs-space-3: 1rem;
+  --bjs-space-4: 1.5rem;
+  --bjs-space-5: 2.5rem;
+  --bjs-space-6: 4rem;
+}
+/* Batavia Jeans Studio — component styles (bjs-*) */
+
+body {
+  background: var(--bjs-bg);
+  color: var(--bjs-ink);
+  font-family: var(--bjs-font-body);
+  line-height: 1.6;
+}
+
+/* ---------- Button ---------- */
+.bjs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-family: var(--bjs-font-display);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--bjs-radius);
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+.bjs-btn:hover { transform: translateY(-1px); filter: brightness(1.1); }
+.bjs-btn--sm { font-size: 0.8rem; padding: 0.45em 1em; }
+.bjs-btn--md { font-size: 0.95rem; padding: 0.65em 1.5em; }
+.bjs-btn--lg { font-size: 1.1rem; padding: 0.8em 2em; }
+.bjs-btn--primary {
+  background: var(--bjs-indigo-600);
+  color: var(--bjs-ink);
+}
+.bjs-btn--whatsapp {
+  background: var(--bjs-wa-green);
+  color: #0b1a10;
+}
+.bjs-btn--ghost {
+  background: transparent;
+  color: var(--bjs-indigo-300);
+  outline: var(--bjs-stitch);
+  outline-offset: -2px;
+}
+
+/* ---------- Hero ---------- */
+.bjs-hero {
+  padding: var(--bjs-space-6) var(--bjs-space-4);
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% -20%, rgba(111, 168, 220, 0.12), transparent 60%),
+    var(--bjs-bg);
+}
+.bjs-hero__kicker {
+  font-family: var(--bjs-font-accent);
+  font-size: 0.95rem;
+  color: var(--bjs-thread);
+  margin: 0 0 var(--bjs-space-3);
+}
+.bjs-hero__title {
+  font-family: var(--bjs-font-display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--bjs-ink);
+}
+.bjs-hero__subline {
+  color: var(--bjs-ink-muted);
+  font-size: 1.1rem;
+  max-width: 38em;
+  margin: var(--bjs-space-3) auto 0;
+}
+.bjs-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bjs-space-3);
+  justify-content: center;
+  margin-top: var(--bjs-space-5);
+}
+
+/* ---------- SectionHeading ---------- */
+.bjs-heading { margin: 0 0 var(--bjs-space-4); }
+.bjs-heading--centered { text-align: center; }
+.bjs-heading__kicker {
+  font-family: var(--bjs-font-accent);
+  font-size: 0.8rem;
+  color: var(--bjs-indigo-400);
+  margin: 0 0 var(--bjs-space-2);
+}
+.bjs-heading__title {
+  font-family: var(--bjs-font-display);
+  font-weight: 600;
+  font-size: 1.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--bjs-ink);
+}
+.bjs-heading__stitch {
+  display: inline-block;
+  width: 4.5rem;
+  border-bottom: var(--bjs-stitch);
+  margin-top: var(--bjs-space-2);
+}
+.bjs-heading--centered .bjs-heading__stitch { margin-left: auto; margin-right: auto; }
+
+/* ---------- ServiceCard ---------- */
+.bjs-service {
+  background: var(--bjs-surface);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--bjs-radius);
+  padding: var(--bjs-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--bjs-space-3);
+  min-width: 14rem;
+  transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+.bjs-service:hover {
+  transform: translateY(-3px);
+  border-color: var(--bjs-indigo-600);
+  background: var(--bjs-surface-raised);
+}
+.bjs-service--featured {
+  outline: var(--bjs-stitch);
+  outline-offset: 4px;
+  background: var(--bjs-surface-raised);
+}
+.bjs-service__name {
+  font-family: var(--bjs-font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--bjs-indigo-300);
+}
+.bjs-service__includes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: var(--bjs-ink-muted);
+  font-size: 0.92rem;
+  flex: 1;
+}
+.bjs-service__includes li { padding: 0.2em 0 0.2em 1.2em; position: relative; }
+.bjs-service__includes li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--bjs-thread);
+}
+.bjs-service__price {
+  font-family: var(--bjs-font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--bjs-thread);
+  margin: 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  padding-top: var(--bjs-space-3);
+  white-space: nowrap;
+}
+.bjs-service__price-from {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--bjs-ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 0.35em;
+}
+
+/* ---------- FeatureCard ---------- */
+.bjs-feature {
+  border: var(--bjs-stitch);
+  border-radius: var(--bjs-radius);
+  padding: var(--bjs-space-4);
+  background: var(--bjs-surface);
+  min-width: 13rem;
+}
+.bjs-feature__icon { font-size: 1.8rem; margin-bottom: var(--bjs-space-2); }
+.bjs-feature__title {
+  font-family: var(--bjs-font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 var(--bjs-space-2);
+  color: var(--bjs-ink);
+}
+.bjs-feature__body { margin: 0; color: var(--bjs-ink-muted); font-size: 0.95rem; }
+
+/* ---------- StitchDivider ---------- */
+.bjs-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--bjs-space-3);
+  margin: var(--bjs-space-5) 0;
+}
+.bjs-divider__line { flex: 1; border-bottom: var(--bjs-stitch); }
+.bjs-divider__label {
+  font-family: var(--bjs-font-accent);
+  font-size: 0.85rem;
+  color: var(--bjs-thread);
+  white-space: nowrap;
+}
+
+/* ---------- ContactItem ---------- */
+.bjs-contact {
+  display: flex;
+  gap: var(--bjs-space-3);
+  padding: var(--bjs-space-2) 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+  align-items: baseline;
+}
+.bjs-contact__label {
+  font-family: var(--bjs-font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  color: var(--bjs-indigo-400);
+  min-width: 7.5rem;
+}
+.bjs-contact__value { color: var(--bjs-ink); }
+a.bjs-contact__value { color: var(--bjs-indigo-300); text-decoration: none; }
+a.bjs-contact__value:hover { text-decoration: underline; }
+
+/* ---------- WhatsAppButton ---------- */
+.bjs-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  background: var(--bjs-wa-green);
+  color: #0b1a10;
+  font-family: var(--bjs-font-display);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.7em 1.4em;
+  border-radius: var(--bjs-radius-pill);
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+.bjs-wa:hover { transform: translateY(-1px); filter: brightness(1.08); }
+.bjs-wa--floating {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 50;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- BrandBadge ---------- */
+.bjs-badge {
+  display: inline-block;
+  padding: 0.35em 0.9em;
+  border-radius: var(--bjs-radius-pill);
+  border: 1px solid var(--bjs-indigo-600);
+  color: var(--bjs-indigo-300);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.bjs-badge__origin { color: var(--bjs-ink-faint); }
